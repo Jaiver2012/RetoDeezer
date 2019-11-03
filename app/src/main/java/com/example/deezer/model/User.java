@@ -1,4 +1,4 @@
-package com.example.deezer;
+package com.example.deezer.model;
 
 import java.io.Serializable;
 

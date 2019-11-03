@@ -1,4 +1,4 @@
-package com.example.deezer;
+package com.example.deezer.adapters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.deezer.R;
+import com.example.deezer.model.PlayList;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;

@@ -1,6 +1,7 @@
-package com.example.deezer;
+package com.example.deezer.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class track implements Serializable {
 
@@ -11,18 +12,29 @@ public class track implements Serializable {
     private int duration;
     private String link;
     private String preview;
-
+    private Long time_add;
 
 
     public track() {
     }
 
-    public track(String title_short, Artist artist, Album album, int duration, String link) {
+    public track(int id, String title_short, Artist artist, Album album, int duration, String link, String preview, Long time_add) {
+        this.id = id;
         this.title_short = title_short;
         this.artist = artist;
         this.album = album;
         this.duration = duration;
         this.link = link;
+        this.preview = preview;
+        this.time_add = time_add;
+    }
+
+    public Long getTime_add() {
+        return time_add;
+    }
+
+    public void setTime_add(Long time_add) {
+        this.time_add = time_add;
     }
 
     public String getPreview() {

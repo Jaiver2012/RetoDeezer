@@ -11,10 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.deezer.model.track;
 import com.squareup.picasso.Picasso;
-
-import java.security.spec.ECParameterSpec;
-import java.util.Date;
 
 public class song extends AppCompatActivity {
 
@@ -25,8 +23,7 @@ public class song extends AppCompatActivity {
     private TextView txtAlbum;
     private EditText edDuration;
     private Button butListen;
-
-
+    private Button butback;
 
 
     @Override
@@ -35,6 +32,7 @@ public class song extends AppCompatActivity {
         setContentView(R.layout.activity_song);
 
 
+        butback=findViewById(R.id.butBack);
         imgTrack= findViewById(R.id.imgTrack);
         txtNameSong=findViewById(R.id.txtNametrack);
         txtArtist=findViewById(R.id.txtArtist);
@@ -56,6 +54,13 @@ public class song extends AppCompatActivity {
 
 
         }
+        butback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(getApplicationContext(), seeList.class);
+                startActivity(i);
+            }
+        });
 
 
         butListen.setOnClickListener(new View.OnClickListener() {

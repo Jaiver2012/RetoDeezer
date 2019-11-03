@@ -5,16 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import com.example.deezer.adapters.AdapterSongList;
+import com.example.deezer.model.PlayList;
+import com.example.deezer.model.track;
 import com.example.deezer.util.HTTPSWebUtilDomi;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.text.AutoText;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -25,12 +24,11 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class seeList extends AppCompatActivity {
 
 
-    //corregir
+
     private ListView listView;
     private AdapterSongList adapterSongList;
 
@@ -48,6 +46,7 @@ public class seeList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_list);
+
 
 
 
@@ -80,20 +79,7 @@ public class seeList extends AppCompatActivity {
 
 
                 PlayList finalPlayList = playList;
-              /*
-                Thread t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        bmp=image(finalPlayList.getpicture_small());
-                    }
-                });
-                t.start();
-                try {
-                    t.join();
-                }catch (Exception e){
-                }
-                imagen.setImageBitmap(bmp);
-                */
+
                 Picasso.get().load(finalPlayList.getpicture_small()).into(imagen);
 
                 namePlayList.setText(playList.getTitle());
@@ -118,6 +104,8 @@ public class seeList extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                    Intent i = new Intent(getApplicationContext(), searchList.class);
+                    startActivity(i);
 
 
                 }
@@ -165,17 +153,6 @@ public class seeList extends AppCompatActivity {
 
         }
 
-    public Bitmap image(String uri){
-        Bitmap bmp=null;
-        URL url = null;
-        try {
-            url = new URL(uri);
-            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bmp;
-    }
 
 }

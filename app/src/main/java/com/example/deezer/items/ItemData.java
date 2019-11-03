@@ -1,4 +1,6 @@
-package com.example.deezer;
+package com.example.deezer.items;
+
+import com.example.deezer.model.PlayList;
 
 import java.util.ArrayList;
 

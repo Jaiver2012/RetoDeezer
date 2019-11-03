@@ -1,7 +1,8 @@
-package com.example.deezer;
+package com.example.deezer.model;
+
+import com.example.deezer.items.ItemData2;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class PlayList  implements Serializable {
 

@@ -1,5 +1,8 @@
 package com.example.deezer;
 
+import com.example.deezer.model.Artist;
+import com.example.deezer.model.User;
+
 public class SongList {
 
     private  String picture_small;
@@ -8,7 +11,7 @@ public class SongList {
     private  String description;
     private  int nb_tracks;
     private  int fans;
-    private  User user;
+    private User user;
 
     private String title_short;
     private Artist artist;

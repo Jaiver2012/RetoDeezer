@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.AutoText;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,11 +11,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deezer.adapters.AdaptePlayList;
+import com.example.deezer.items.ItemData;
+import com.example.deezer.model.PlayList;
 import com.example.deezer.util.HTTPSWebUtilDomi;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 public class searchList extends AppCompatActivity {
 
@@ -32,7 +35,9 @@ public class searchList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_list);
-        butBack=findViewById(R.id.butBack);
+
+
+        butBack=findViewById(R.id.btnback);
         respuesta=findViewById(R.id.searchs);
 
         lit= new ArrayList<>();
@@ -49,13 +54,6 @@ public class searchList extends AppCompatActivity {
             }
         });
 
-        butBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
         butSearch=findViewById(R.id.butSearch);
         butSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +62,6 @@ public class searchList extends AppCompatActivity {
                 Gson gson = new Gson();
 
                 String re=respuesta.getText().toString();
-                Toast.makeText(searchList.this,"Hol"+re,Toast.LENGTH_LONG).show();
 
                 new Thread(()->{
                     try {
@@ -108,7 +105,6 @@ public class searchList extends AppCompatActivity {
                         runOnUiThread(()->{
 
                             option= gson.fromJson(u,PlayList.class);
-                            Toast.makeText(searchList.this,"Hola"+option.getTitle(),Toast.LENGTH_LONG).show();
                            in.putExtra("selected",option);
                            startActivity(in);
                         });
